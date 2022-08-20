@@ -1,0 +1,43 @@
+{% extends 'shop/basic.html' %}
+
+{% block title%} Contact Us - My Awesome Cart{% endblock %}
+{% block body %}
+<div class="container my-3">
+   <b> <marquee><h3>←Thanks For Visiting here!!</h3></marquee></b>
+    <b><h4>Contact Us!</h4></b>
+    <form action="/shop/contact1/" method="post">{% csrf_token %}
+  <div class="form-group">
+    <label for="name"><h5>UserName⍟:</h5></label>
+    <input type="text" class="form-control" id="name" name='name' placeholder="Enter Your Name">
+  </div>
+  <div class="form-group">
+    <label for="name"><h5>UserEmail⍟:</h5></label>
+    <input type="email" class="form-control" id="email" name='email' placeholder="Enter Your Email">
+  </div>
+
+    <div class="form-group">
+    <label for="name"><h5>Mobile No⍟:</h5></label>
+    <input type="tel" class="form-control" id="mobile" name='mobile' placeholder="Enter Your Phone Number">
+  </div>
+
+
+   <div class="form-group">
+    <label for="desc">How May We Help You?</label>
+    <textarea class="form-control" id="desc" name='desc' rows="3"></textarea>
+  </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+</form>
+
+
+
+</div>
+{% endblock %}
+{% block js%}
+<script>
+{% if thank %}
+alert('Thanks for contacting us.we will meet again');
+localStorage.clear();
+document.location = "/shop/contact1";
+{% endif %}
+</script>
+{% endblock %}
